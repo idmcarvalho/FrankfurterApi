@@ -24,15 +24,22 @@ export class LatestComponent implements OnInit {
     this.typeOfSearch = (<HTMLInputElement>document.getElementById("inputState")).value;
     //search by all rates having euro as base
     if(this.typeOfSearch == 'Get all rates'){
+      //Service Request
       this.requestService.getAllLatestRates().subscribe(response => {
+        //latesRates variable initialization
         this.latestRates = new latestRates();
+        //latesRatesArray variable initialization
         this.latestRatesArray = []
+        //converting object that came from api into array of objects
         let rawValue = Object.entries(response.rates);
+        //interating over array of objects to define each object
         for(let i = 0; i <= rawValue.length - 1; i ++){
+          //atribuittion to latestRatesObject
           this.latestRates = {
             coin: rawValue[i][0],
             value: String(rawValue[i][1]) 
           } 
+          //adding latestRates object to the latest rates object array
           this.latestRatesArray.push(this.latestRates)
         }
       },error =>{
@@ -41,10 +48,12 @@ export class LatestComponent implements OnInit {
     } 
     //search rate for an specific coin
     else if(this.typeOfSearch == 'Get rates from specific coin'){
+      //ToDo
       alert('Get rates from specific coin')
     }
     //search for one or more coins
     else {
+      //ToDo
       alert('Get one or more rates')
     }
   }
