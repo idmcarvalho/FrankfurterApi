@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { latestRates } from '../models/latestRates';
 import { RequestsService } from '../services/requests.service';
-import * as XLSX from 'xlsx'; 
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-latest',
@@ -26,26 +26,29 @@ export class LatestComponent implements OnInit {
     if(this.typeOfSearch == 'Get all rates'){
       //Service Request
       this.requestService.getAllLatestRates().subscribe(response => {
+        debugger;
         //latesRates variable initialization
         this.latestRates = new latestRates();
         //latesRatesArray variable initialization
         this.latestRatesArray = []
         //converting object that came from api into array of objects
         let rawValue = Object.entries(response.rates);
+        debugger;
         //interating over array of objects to define each object
         for(let i = 0; i <= rawValue.length - 1; i ++){
+          debugger;
           //atribuittion to latestRatesObject
           this.latestRates = {
             coin: rawValue[i][0],
-            value: String(rawValue[i][1]) 
-          } 
+            value: String(rawValue[i][1])
+          }
           //adding latestRates object to the latest rates object array
           this.latestRatesArray.push(this.latestRates)
         }
       },error =>{
         alert('This service is not available at the moment, try again later')
       });
-    } 
+    }
     //search rate for an specific coin
     else if(this.typeOfSearch == 'Get rates from specific coin'){
       //ToDo
@@ -59,15 +62,15 @@ export class LatestComponent implements OnInit {
   }
 
   exportToExcel(){
-    // name of the excel-file which will be downloaded. 
+    // name of the excel-file which will be downloaded.
     let fileName = `frankfurterApiAllLatestRates.xlsx`;
-    // table id is passed over here 
+    // table id is passed over here
     let element = document.getElementById('excel-table');
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
-    // generate workbook and add the worksheet 
+    // generate workbook and add the worksheet
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    // save to file 
+    // save to file
     XLSX.writeFile(wb, fileName);
   }
 
