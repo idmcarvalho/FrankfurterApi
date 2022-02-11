@@ -10,6 +10,6 @@ export class RequestsService {
 
   getAllLatestRates(){
     let url = `https://api.frankfurter.app/latest`;
-    return this.http.get(url);
+    return this.http.get<any>(url);
   }
 }

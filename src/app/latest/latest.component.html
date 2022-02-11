@@ -8,7 +8,28 @@
               <option>Get rates from specific coin</option>
               <option>Get one or more rates</option>
             </select>
-            <button (click)="searchLatestRates()" class="btn btn-success m-3">Search</button>
+            <button (click)="searchLatestRates()" class="btn btn-success mt-3 mr-1">Search</button>
+            <button (click)="clear()" class="btn btn-outline-success mt-3 mr-1">Clear</button>
+            <button (click)="exportToExcel()" *ngIf="this.latestRatesArray?.length" class="btn btn-success mt-3">Export Excel</button>
+        </div>
+        <div *ngIf="this.latestRatesArray?.length" class="col-8 text-center mt-5">
+            <label><strong>Coin Base: 1.00 Euro</strong></label>
+            <table id="excel-table" class="table table-striped responsive-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Coin</th>
+                    <th scope="col">Value</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr *ngFor="let rates of this.latestRatesArray; let i = index" [attr.data-index]="i">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{rates.coin}}</td>
+                    <td>{{rates.value}}</td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
     </div>
 </div>
