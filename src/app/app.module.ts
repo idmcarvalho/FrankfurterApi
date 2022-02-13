@@ -9,7 +9,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { LatestComponent } from './latest/latest.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HistoricalComponent } from './historical/historical.component';
-import { findCountries } from './globalAlgorithms/findCountries';
+import { findCodeLabel } from './globalAlgorithms/findCodeLabel';
+import { exportToExcel } from './globalAlgorithms/exportToExcel';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { findCountries } from './globalAlgorithms/findCountries';
       { path: 'historical', component: HistoricalComponent, pathMatch: 'full' }
     ])
   ],
-  providers: [findCountries],
+  providers: [findCodeLabel,exportToExcel],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

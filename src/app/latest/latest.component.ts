@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { latestRates } from '../models/latestRates';
 import { RequestsService } from '../services/requests.service';
-import * as XLSX from 'xlsx';
-import { findCountries } from '../globalAlgorithms/findCountries';
+import { findCodeLabel } from '../globalAlgorithms/findCodeLabel';
+import { exportToExcel } from '../globalAlgorithms/exportToExcel';
 
 @Component({
   selector: 'app-latest',
@@ -26,7 +26,7 @@ export class LatestComponent implements OnInit {
   //Tells the relation between coins
   baseCoin:string = '';
 
-  constructor(private requestService: RequestsService, private globalAlgotiyhms: findCountries) { }
+  constructor(private requestService: RequestsService, private globalAlgotiyhms: findCodeLabel,private exportExcel:exportToExcel) { }
 
   ngOnInit(): void {
   }
@@ -63,8 +63,8 @@ export class LatestComponent implements OnInit {
   }
 
   exportToExcel() {
-    let fileName = 'latestRates'
-    this.globalAlgotiyhms.exportToExcel(fileName);
+    let fileName = 'Currency_Correlation'
+    this.exportExcel.exportToExcel(fileName);
   }
 
   clear() {
