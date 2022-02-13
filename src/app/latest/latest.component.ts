@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { latestRates } from '../models/latestRates';
 import { RequestsService } from '../services/requests.service';
 import * as XLSX from 'xlsx';
+import { findCountries } from '../globalAlgorithms/findCountries';
 
 @Component({
   selector: 'app-latest',
@@ -10,47 +11,48 @@ import * as XLSX from 'xlsx';
 })
 export class LatestComponent implements OnInit {
   //typeOfSearch variable initialization
-  typeOfSearch:string = '';
-  latestRates:latestRates | undefined;
-  latestRatesArray:Array<latestRates> | undefined;
+  typeOfSearch: string = '';
+  latestRates: latestRates | undefined;
+  latestRatesArray: Array<latestRates> | undefined;
 
-  constructor(private requestService:RequestsService) { }
+  constructor(private requestService: RequestsService, private globalAlgotiyhms: findCountries) { }
 
   ngOnInit(): void {
   }
 
-  searchLatestRates(){
+  searchLatestRates() {
     //this typeOfSearch recieves the type of search choosen
     this.typeOfSearch = (<HTMLInputElement>document.getElementById("inputState")).value;
     //search by all rates having euro as base
-    if(this.typeOfSearch == 'Get all rates'){
+    if (this.typeOfSearch == 'Get all rates') {
       //Service Request
       this.requestService.getAllLatestRates().subscribe(response => {
-        debugger;
         //latesRates variable initialization
         this.latestRates = new latestRates();
         //latesRatesArray variable initialization
         this.latestRatesArray = []
         //converting object that came from api into array of objects
         let rawValue = Object.entries(response.rates);
-        debugger;
+        //Get the label country list to build object
+        let labels = this.globalAlgotiyhms.countriesJson();
+        labels = Object.entries(labels)
         //interating over array of objects to define each object
-        for(let i = 0; i <= rawValue.length - 1; i ++){
-          debugger;
-          //atribuittion to latestRatesObject
-          this.latestRates = {
-            coin: rawValue[i][0],
-            value: String(rawValue[i][1])
-          }
-          //adding latestRates object to the latest rates object array
-          this.latestRatesArray.push(this.latestRates)
+        for (let i = 0; i <= rawValue.length - 1; i++) {
+              //atribuittion to latestRatesObject
+              this.latestRates = {
+                label:this.globalAlgotiyhms.findLabel(rawValue[i][0]),
+                coin: rawValue[i][0],
+                value: String(rawValue[i][1])
+              }
+              //adding latestRates object to the latest rates object array
+              this.latestRatesArray.push(this.latestRates)
         }
-      },error =>{
+      }, error => {
         alert('This service is not available at the moment, try again later')
       });
     }
     //search rate for an specific coin
-    else if(this.typeOfSearch == 'Get rates from specific coin'){
+    else if (this.typeOfSearch == 'Get rates from specific coin') {
       //ToDo
       alert('Get rates from specific coin')
     }
@@ -61,20 +63,12 @@ export class LatestComponent implements OnInit {
     }
   }
 
-  exportToExcel(){
-    // name of the excel-file which will be downloaded.
-    let fileName = `frankfurterApiAllLatestRates.xlsx`;
-    // table id is passed over here
-    let element = document.getElementById('excel-table');
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
-    // generate workbook and add the worksheet
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    // save to file
-    XLSX.writeFile(wb, fileName);
+  exportToExcel() {
+    let fileName = 'latestRates'
+    this.globalAlgotiyhms.exportToExcel(fileName);
   }
 
-  clear(){
+  clear() {
     //reload the current page
     location.reload();
   }

@@ -19,12 +19,14 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Coin</th>
+                    <th scope="col">Code</th>
                     <th scope="col">Value</th>
                   </tr>
                 </thead>
                 <tbody >
                   <tr *ngFor="let rates of this.latestRatesArray; let i = index" [attr.data-index]="i">
                     <th scope="row">{{i + 1}}</th>
+                    <td>{{rates.label}}</td>
                     <td>{{rates.coin}}</td>
                     <td>{{rates.value}}</td>
                   </tr>

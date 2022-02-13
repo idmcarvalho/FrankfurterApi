@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { LatestComponent } from './latest/latest.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HistoricalComponent } from './historical/historical.component';
+import { findCountries } from './globalAlgorithms/findCountries';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { HistoricalComponent } from './historical/historical.component';
       { path: 'historical', component: HistoricalComponent, pathMatch: 'full' }
     ])
   ],
-  providers: [],
+  providers: [findCountries],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
