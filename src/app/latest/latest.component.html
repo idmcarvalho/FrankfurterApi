@@ -1,37 +1,81 @@
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-8 text-center">
-            <label class="display-4" for="inputState">Type of Search</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>Get all rates</option>
-              <option>Get rates from specific coin</option>
-              <option>Get one or more rates</option>
-            </select>
-            <button (click)="searchLatestRates()" class="btn btn-success mt-3 mr-1">Search</button>
-            <button (click)="clear()" class="btn btn-outline-success mt-3 mr-1">Clear</button>
-            <button (click)="exportToExcel()" *ngIf="this.latestRatesArray?.length" class="btn btn-success mt-3">Export Excel</button>
-        </div>
-        <div *ngIf="this.latestRatesArray?.length" class="col-8 text-center mt-5">
-            <label><strong>Coin Base: 1.00 Euro</strong></label>
-            <table id="excel-table" class="table table-striped responsive-table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Coin</th>
-                    <th scope="col">Code</th>
-                    <th scope="col">Value</th>
-                  </tr>
-                </thead>
-                <tbody >
-                  <tr *ngFor="let rates of this.latestRatesArray; let i = index" [attr.data-index]="i">
-                    <th scope="row">{{i + 1}}</th>
-                    <td>{{rates.label}}</td>
-                    <td>{{rates.coin}}</td>
-                    <td>{{rates.value}}</td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
+  <div class="row justify-content-center">
+    <div *ngIf="this.searchBar" class="col-8 text-center">
+      <label class="display-4" for="inputState">Currency Correlation</label>
+      <br>
+      <label>This tool shows the correlation of a currency with the main currencies in the world</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose one coin...</option>
+        <option> Australian Dollar </option>
+        <option> Bulgarian Lev </option>
+        <option> Brazilian Real </option>
+        <option> Canadian Dollar </option>
+        <option> Swiss Franc </option>
+        <option> Chinese Yuan </option>
+        <option> Czech Koruna </option>
+        <option> Danish Krone </option>
+        <option> Pound Sterling </option>
+        <option> Hong Kong Dollar </option>
+        <option> Croatian Kuna </option>
+        <option> Hungarian Forint </option>
+        <option> Indonesian Rupiah </option>
+        <option> Israel Shekel </option>
+        <option> Indian Rupee </option>
+        <option> Icelandic Króna </option>
+        <option> Japanese Yen </option>
+        <option> Korean Won </option>
+        <option> Mexican Peso </option>
+        <option> Malaysian Ringgit </option>
+        <option> Norwegian Krone </option>
+        <option> New Zeland Dollar </option>
+        <option> Philippine Peso </option>
+        <option> Polish Zloty </option>
+        <option> Romanian Leu </option>
+        <option> Russian Ruble </option>
+        <option> Swedish Krona </option>
+        <option> Singapore Dollar </option>
+        <option> Thai Baht </option>
+        <option> Turkish Lira </option>
+        <option> American Dollar </option>
+        <option> South African Rand </option>
+      </select>
+      <button (click)="searchLatestRates()" class="btn btn-success mt-3 mr-1">Search</button>
+      <button [routerLink]="['/']" class="btn btn-outline-success mt-3 mr-1">Return</button>
+
     </div>
+    <div *ngIf="this.latestRatesArray?.length" class="col-8 text-center mt-5">
+      <button (click)="exportToExcel()" *ngIf="this.latestRatesArray?.length"
+        class="btn btn-success mt-3 mb-3 float-left">Export
+        Excel</button>
+      <button (click)="clear()" class="btn btn-outline-success  mt-3 mb-3 ml-1 float-left">Return</button>
+      <table id="excel-table" class="table table-striped responsive-table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Coin</th>
+            <th scope="col">Code</th>
+            <th scope="col">Equals</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Coin</th>
+            <th scope="col">Code</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rates of this.latestRatesArray; let i = index" [attr.data-index]="i">
+            <th scope="row">{{i + 1}}</th>
+            <td>1</td>
+            <td>{{baseCoin}}</td>
+            <td>{{codeCoin}}</td>
+            <td>=</td>
+            <td>{{rates.value}}</td>
+            <td>{{rates.label}}</td>
+            <td>{{rates.coin}}</td>
+            <td>{{date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

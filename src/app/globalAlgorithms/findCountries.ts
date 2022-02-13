@@ -2,16 +2,18 @@ import * as XLSX from 'xlsx';
 
 export class findCountries {
     labelCoins: any;
+    //This funtcion returns the relation between codes and labels on Json format
     countriesJson() {
         this.labelCoins = {
             "AUD":"Australian Dollar",
             "BGN": "Bulgarian Lev",
-            "BRL": "Real",
+            "BRL": "Brazilian Real",
             "CAD": "Canadian Dollar",
             "CHF": "Swiss Franc",
             "CNY": "Chinese Yuan",
             "CZK": "Czech Koruna",
             "DKK": "Danish Krone",
+            "EUR":"Euro",
             "GBP": "Pound Sterling",
             "HKD": "Hong Kong Dollar",
             "HRK": "Croatian Kuna",
@@ -39,6 +41,7 @@ export class findCountries {
         }
         return this.labelCoins;
     }
+    //this function recieve a rate code and return a label code
     findLabel(code:string){
         let labelCoins = this.countriesJson();
         labelCoins = Object.entries(labelCoins);
@@ -48,6 +51,17 @@ export class findCountries {
             }
         }
     }
+    //this function recieves a label and returns a code
+    findCode(label:string){
+        let labelCoins = this.countriesJson();
+        labelCoins = Object.entries(labelCoins);
+        for(let i =0; i<=labelCoins.length - 1; i++){
+            if(labelCoins[i][1] == label){
+                return labelCoins[i][0];
+            }
+        }
+    }
+    //this function recieve an file name and creates an excel from a table
     exportToExcel(fileName:string) {
         // table id is passed over here
         let element = document.getElementById('excel-table');
@@ -58,5 +72,4 @@ export class findCountries {
         // save to file
         XLSX.writeFile(wb, `${fileName}.xlsx`);
       }
-    
 }
