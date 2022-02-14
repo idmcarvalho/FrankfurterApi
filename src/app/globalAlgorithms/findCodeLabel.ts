@@ -1,5 +1,3 @@
-import * as XLSX from 'xlsx';
-
 export class findCodeLabel {
     labelCoins: any;
     //This funtcion returns the relation between codes and labels on Json format
