@@ -40,7 +40,7 @@ export class findCodeLabel {
         return this.labelCoins;
     }
     //this function recieve a rate code and return a label code
-    findLabel(code:string){
+    findLabel(code:string):string{
         let labelCoins = this.countriesJson();
         labelCoins = Object.entries(labelCoins);
         for(let i =0; i<=labelCoins.length - 1; i++){
@@ -48,9 +48,10 @@ export class findCodeLabel {
                 return labelCoins[i][1];
             }
         }
+        return '';
     }
     //this function recieves a label and returns a code
-    findCode(label:string){
+    findCode(label:string):string{
         let labelCoins = this.countriesJson();
         labelCoins = Object.entries(labelCoins);
         for(let i =0; i<=labelCoins.length - 1; i++){
@@ -58,5 +59,6 @@ export class findCodeLabel {
                 return labelCoins[i][0];
             }
         }
+        return '';
     }
 }
