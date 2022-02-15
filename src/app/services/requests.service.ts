@@ -13,4 +13,10 @@ export class RequestsService {
     //it returns the response
     return this.http.get<any>(url);
   }
+
+  getHistorical(date:string){
+    let url = `https://api.frankfurter.app/${date}`;
+    return this.http.get<any>(url);
+  }
+
 }

@@ -1,1 +1,10 @@
-<p>historical works!</p>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <input [(ngModel)]="data" type="date" class="form-control">
+        </div>
+        <div class="col-12 text-center mt-2">
+            <button (click)="search()" class="btn btn-success">Search</button>
+        </div>
+    </div>
+</div>
