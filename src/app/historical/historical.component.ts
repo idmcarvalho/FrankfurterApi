@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { findCodeLabel } from '../globalAlgorithms/findCodeLabel';
+import { coins } from '../models/coins';
 import { RequestsService } from '../services/requests.service';
 
 @Component({
@@ -8,15 +10,29 @@ import { RequestsService } from '../services/requests.service';
 })
 export class HistoricalComponent implements OnInit {
   data:string = '';
-  constructor(private requestService:RequestsService) { }
+  historicalRates: coins | undefined;
+  historicalRatesArray: Array<coins> | undefined;
+  constructor(private requestService:RequestsService, private globalAlgorithms:findCodeLabel) { }
 
   ngOnInit(): void {
   }
 
   search(){
     this.requestService.getHistorical(this.data).subscribe(response => {
-      debugger;
-      console.log(response)
+      this.historicalRates=new coins()
+      this.historicalRatesArray=[]
+      let rawData=Object.entries(response.rates);
+      for(let i=0; i<=rawData.length-1;i++){
+        this.historicalRates={
+          label:this.globalAlgorithms.findLabel(rawData[i][0]),
+          coin:rawData[i][0],
+          value: String(rawData[i][1])
+        }
+        this.historicalRatesArray.push(this.historicalRates)
+      }
+
+
+console.log(this.historicalRatesArray)
     }, error => {
 
     })

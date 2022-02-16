@@ -6,5 +6,25 @@
         <div class="col-12 text-center mt-2">
             <button (click)="search()" class="btn btn-success">Search</button>
         </div>
+        <div>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Coin</th>
+                <th scope="col">Code</th>
+                <th scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let historical of this.historicalRatesArray">
+                <th scope="row">1</th>
+                <td>{{historical.label}}</td>
+                <td>{{historical.coin}}</td>
+                <td>{{historical.value}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     </div>
 </div>

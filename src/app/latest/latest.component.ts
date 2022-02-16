@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { latestRates } from '../models/latestRates';
+import { coins } from '../models/coins';
 import { RequestsService } from '../services/requests.service';
 import { findCodeLabel } from '../globalAlgorithms/findCodeLabel';
 import { exportToExcel } from '../globalAlgorithms/exportToExcel';
@@ -13,10 +13,10 @@ export class LatestComponent implements OnInit {
   //typeOfSearch variable initialization
   typeOfSearch: string = '';
   //Object that recieves the return from api
-  latestRates: latestRates | undefined;
+  latestRates: coins | undefined;
   //Array of objects of type latestRates
   //This array is used to show data through ngFor
-  latestRatesArray: Array<latestRates> | undefined;
+  latestRatesArray: Array<coins> | undefined;
   //Date to display on the table
   date: string = new Date().toUTCString();
   //Currency code
@@ -38,7 +38,7 @@ export class LatestComponent implements OnInit {
     //Service Request
     this.requestService.getAllLatestRates(this.codeCoin).subscribe(response => {
       //latesRates variable initialization
-      this.latestRates = new latestRates();
+      this.latestRates = new coins();
       //latesRatesArray variable initialization
       this.latestRatesArray = []
       //converting object that came from api into array of objects
