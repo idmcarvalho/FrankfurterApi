@@ -38,6 +38,9 @@
                 <option> American Dollar </option>
                 <option> South African Rand </option>
             </select>
+            <br>
+            <label>Type the amount</label>
+            <input [(ngModel)]="this.conversion.amount" type="text" class="form-control">
             <label>To</label>
             <br>
             <select id="inputStateConversionTo" class="form-control">
@@ -75,10 +78,6 @@
                 <option> American Dollar </option>
                 <option> South African Rand </option>
             </select>
-            <br>
-            <label>Type the amount</label>
-            <br>
-            <input [(ngModel)]="this.conversion.amount" type="text" class="form-control">
             <br>
             <button class="btn btn-success text-center" (click)="calculate()">Calculate</button>
         </div>

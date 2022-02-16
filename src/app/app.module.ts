@@ -14,6 +14,7 @@ import { exportToExcel } from './globalAlgorithms/exportToExcel';
 import { FooterComponent } from './footer/footer.component';
 import { ConversionComponent } from './conversion/conversion.component';
 import { ConversionFieldsComponent } from './conversion/conversion-fields/conversion-fields.component';
+import { currencyFormatter } from './globalAlgorithms/currencyFormatter';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ConversionFieldsComponent } from './conversion/conversion-fields/conver
       { path: 'conversion', component: ConversionComponent, pathMatch: 'full' }
     ])
   ],
-  providers: [findCodeLabel,exportToExcel],
+  providers: [findCodeLabel,exportToExcel,currencyFormatter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
