@@ -6,7 +6,7 @@
         <div class="col-12 text-center mt-2">
             <button (click)="search()" class="btn btn-success">Search</button>
         </div>
-        <div>
+        <div class="col-8 responsive-table">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -17,8 +17,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let historical of this.historicalRatesArray">
-                <th scope="row">1</th>
+              <tr *ngFor="let historical of this.historicalRatesArray;let i = index" [attr.data-index]="i">
+                <th scope="row">{{i + 1}}</th>
                 <td>{{historical.label}}</td>
                 <td>{{historical.coin}}</td>
                 <td>{{historical.value}}</td>

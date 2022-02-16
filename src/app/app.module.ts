@@ -12,6 +12,8 @@ import { HistoricalComponent } from './historical/historical.component';
 import { findCodeLabel } from './globalAlgorithms/findCodeLabel';
 import { exportToExcel } from './globalAlgorithms/exportToExcel';
 import { FooterComponent } from './footer/footer.component';
+import { ConversionComponent } from './conversion/conversion.component';
+import { ConversionFieldsComponent } from './conversion/conversion-fields/conversion-fields.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FooterComponent } from './footer/footer.component';
     MenuComponent,
     LatestComponent,
     HistoricalComponent,
-    FooterComponent
+    FooterComponent,
+    ConversionComponent,
+    ConversionFieldsComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -30,7 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     RouterModule.forRoot([
       { path: '', component: MenuComponent, pathMatch: 'full' },
       { path: 'latest', component: LatestComponent, pathMatch: 'full' },
-      { path: 'historical', component: HistoricalComponent, pathMatch: 'full' }
+      { path: 'historical', component: HistoricalComponent, pathMatch: 'full' },
+      { path: 'conversion', component: ConversionComponent, pathMatch: 'full' }
     ])
   ],
   providers: [findCodeLabel,exportToExcel],

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { conversion } from '../models/conversion';
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +20,8 @@ export class RequestsService {
     return this.http.get<any>(url);
   }
 
+  getConversion(comparison:conversion){
+    let url = `https://api.frankfurter.app/latest?amount=${comparison.amount}&from=${comparison.coinFrom}&to=${comparison.coinTo}`;
+    return this.http.get<any>(url);
+  }
 }
