@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ConversionComponent } from './conversion/conversion.component';
 import { ConversionFieldsComponent } from './conversion/conversion-fields/conversion-fields.component';
 import { currencyFormatter } from './globalAlgorithms/currencyFormatter';
+import { TimeSeriesComponent } from './time-series/time-series.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { currencyFormatter } from './globalAlgorithms/currencyFormatter';
     HistoricalComponent,
     FooterComponent,
     ConversionComponent,
-    ConversionFieldsComponent
+    ConversionFieldsComponent,
+    TimeSeriesComponent
   ],
   imports: [
     FontAwesomeModule,
