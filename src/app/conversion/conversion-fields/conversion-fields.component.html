@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-12">
+            <label>Convert From</label>
+            <br>
+            <select id="inputStateConversionFrom" class="form-control">
+                <option selected>Choose one coin...</option>
+                <option> Australian Dollar </option>
+                <option> Bulgarian Lev </option>
+                <option> Brazilian Real </option>
+                <option> Canadian Dollar </option>
+                <option> Swiss Franc </option>
+                <option> Chinese Yuan </option>
+                <option> Czech Koruna </option>
+                <option> Danish Krone </option>
+                <option> Pound Sterling </option>
+                <option> Hong Kong Dollar </option>
+                <option> Croatian Kuna </option>
+                <option> Hungarian Forint </option>
+                <option> Indonesian Rupiah </option>
+                <option> Israel Shekel </option>
+                <option> Indian Rupee </option>
+                <option> Icelandic Króna </option>
+                <option> Japanese Yen </option>
+                <option> Korean Won </option>
+                <option> Mexican Peso </option>
+                <option> Malaysian Ringgit </option>
+                <option> Norwegian Krone </option>
+                <option> New Zeland Dollar </option>
+                <option> Philippine Peso </option>
+                <option> Polish Zloty </option>
+                <option> Romanian Leu </option>
+                <option> Russian Ruble </option>
+                <option> Swedish Krona </option>
+                <option> Singapore Dollar </option>
+                <option> Thai Baht </option>
+                <option> Turkish Lira </option>
+                <option> American Dollar </option>
+                <option> South African Rand </option>
+            </select>
+            <br>
+            <label>Type the amount</label>
+            <input [(ngModel)]="this.conversion.amount" type="text" class="form-control">
+            <label>To</label>
+            <br>
+            <select id="inputStateConversionTo" class="form-control">
+                <option selected>Choose one coin...</option>
+                <option> Australian Dollar </option>
+                <option> Bulgarian Lev </option>
+                <option> Brazilian Real </option>
+                <option> Canadian Dollar </option>
+                <option> Swiss Franc </option>
+                <option> Chinese Yuan </option>
+                <option> Czech Koruna </option>
+                <option> Danish Krone </option>
+                <option> Pound Sterling </option>
+                <option> Hong Kong Dollar </option>
+                <option> Croatian Kuna </option>
+                <option> Hungarian Forint </option>
+                <option> Indonesian Rupiah </option>
+                <option> Israel Shekel </option>
+                <option> Indian Rupee </option>
+                <option> Icelandic Króna </option>
+                <option> Japanese Yen </option>
+                <option> Korean Won </option>
+                <option> Mexican Peso </option>
+                <option> Malaysian Ringgit </option>
+                <option> Norwegian Krone </option>
+                <option> New Zeland Dollar </option>
+                <option> Philippine Peso </option>
+                <option> Polish Zloty </option>
+                <option> Romanian Leu </option>
+                <option> Russian Ruble </option>
+                <option> Swedish Krona </option>
+                <option> Singapore Dollar </option>
+                <option> Thai Baht </option>
+                <option> Turkish Lira </option>
+                <option> American Dollar </option>
+                <option> South African Rand </option>
+            </select>
+            <br>
+            <button class="btn btn-success text-center" (click)="calculate()">Calculate</button>
+        </div>
+        
+    </div>
+</div>

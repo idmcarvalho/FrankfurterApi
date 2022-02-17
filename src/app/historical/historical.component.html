@@ -18,8 +18,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let historical of this.historicalRatesArray">
-                <th scope="row">1</th>
+              <tr *ngFor="let historical of this.historicalRatesArray;let i = index" [attr.data-index]="i">
+                <th scope="row">{{i + 1}}</th>
                 <td>{{historical.label}}</td>
                 <td>{{historical.coin}}</td>
                 <td>{{historical.value}}</td>
