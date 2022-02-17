@@ -24,4 +24,9 @@ export class RequestsService {
     let url = `https://api.frankfurter.app/latest?amount=${comparison.amount}&from=${comparison.coinFrom}&to=${comparison.coinTo}`;
     return this.http.get<any>(url);
   }
+  getTimeSeries(startDate:string, endDate:string){
+    let url = `https://api.frankfurter.app/${startDate}..${endDate}`;
+    console.log(url)
+    return this.http.get<any>(url);
+  }
 }

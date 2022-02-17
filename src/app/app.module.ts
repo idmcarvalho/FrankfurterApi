@@ -38,7 +38,8 @@ import { TimeSeriesComponent } from './time-series/time-series.component';
       { path: '', component: MenuComponent, pathMatch: 'full' },
       { path: 'latest', component: LatestComponent, pathMatch: 'full' },
       { path: 'historical', component: HistoricalComponent, pathMatch: 'full' },
-      { path: 'conversion', component: ConversionComponent, pathMatch: 'full' }
+      { path: 'conversion', component: ConversionComponent, pathMatch: 'full' },
+      { path: 'time-series', component: TimeSeriesComponent, pathMatch: 'full' }
     ])
   ],
   providers: [findCodeLabel,exportToExcel,currencyFormatter],

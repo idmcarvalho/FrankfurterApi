@@ -1,1 +1,9 @@
-<p>time-series works!</p>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <input [(ngModel)]="startDate" class="form-control" type="date">
+            <input [(ngModel)]="endDate" class="form-control" type="date">
+            <button (click)="search()" class="btn btn-success">Search</button>
+        </div>
+    </div>
+</div>
