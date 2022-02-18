@@ -3,6 +3,7 @@ import { findCodeLabel } from '../globalAlgorithms/findCodeLabel';
 import { fixData } from '../globalAlgorithms/fixData';
 import { coins } from '../models/coins';
 import { RequestsService } from '../services/requests.service';
+import { exportToExcel } from '../globalAlgorithms/exportToExcel';
 
 @Component({
   selector: 'app-time-series',
@@ -16,7 +17,7 @@ export class TimeSeriesComponent implements OnInit {
   coinsArray:Array<coins> = []
   rawDataFromJsonDate:any;
   //calling classes that will be used on this file
-  constructor(private requestService:RequestsService, private globalAlgorithms:findCodeLabel) { }
+  constructor(private requestService:RequestsService, private globalAlgorithms:findCodeLabel, private exportExcel: exportToExcel) { }
 
   ngOnInit(): void {
   }
@@ -52,5 +53,8 @@ export class TimeSeriesComponent implements OnInit {
         }
       }
     })
+  }
+  exportToExcel(){
+    this.exportExcel.exportToExcel("time series")
   }
 }

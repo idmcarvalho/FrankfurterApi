@@ -1,39 +1,40 @@
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-12 text-center">
-            <label class="display-3">Time Series</label>
-            <br>
-            <label>Search currencies over the time. The results are based on 1€</label>
-        </div>
-        <div class="col-12 col-md-5 text-center">
-            <label class="mt-2">Start Date</label>
-            <input [(ngModel)]="startDate" class="form-control" type="date">
-            <label class="mt-2">End Date</label>
-            <input [(ngModel)]="endDate" class="form-control" type="date">
-            <button (click)="search()" class="btn btn-success mt-2">Search</button>
-            <button [routerLink]="['/']" class="btn btn-outline-success mt-2 ml-1">Return</button>
-        </div>
-        <div  class="col-12 col-md-8 table-responsive">
-            <table *ngIf="this.coinsArray.length > 0" class="table table-striped mt-2">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Coin</th>
-                    <th scope="col">Code</th>
-                    <th scope="col">Value</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let coin of this.coinsArray;let i = index" [attr.data-index]="i">
-                    <th scope="row">{{i + 1}}</th>
-                    <td>{{coin.date}}</td>
-                    <td>{{coin.label}}</td>
-                    <td>{{coin.coin}}</td>
-                    <td>{{coin.value}}</td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
+  <div class="row justify-content-center">
+    <div class="col-12 text-center">
+      <label class="display-3">Time Series</label>
+      <br>
+      <label>Search currencies over the time. The results are based on 1€</label>
     </div>
+    <div class="col-12 col-md-5 text-center">
+      <label class="mt-2">Start Date</label>
+      <input [(ngModel)]="startDate" class="form-control" type="date">
+      <label class="mt-2">End Date</label>
+      <input [(ngModel)]="endDate" class="form-control" type="date">
+      <button (click)="search()" class="btn btn-success mt-2 ml-1">Search</button>
+      <button [routerLink]="['/']" class="btn btn-outline-success mt-2 ml-1">Return</button>
+    </div>
+    <div class="col-12 col-md-8 table-responsive">
+      <button (click)="exportToExcel()" *ngIf="this.coinsArray?.length"class="btn btn-success mt-2 ml-1">Export Excel</button>
+      <table id="excel-table" *ngIf="this.coinsArray.length > 0" class="table table-striped mt-2">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Coin</th>
+            <th scope="col">Code</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coin of this.coinsArray;let i = index" [attr.data-index]="i">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{coin.date}}</td>
+            <td>{{coin.label}}</td>
+            <td>{{coin.coin}}</td>
+            <td>{{coin.value}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
