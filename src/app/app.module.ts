@@ -16,6 +16,7 @@ import { ConversionComponent } from './conversion/conversion.component';
 import { ConversionFieldsComponent } from './conversion/conversion-fields/conversion-fields.component';
 import { currencyFormatter } from './globalAlgorithms/currencyFormatter';
 import { TimeSeriesComponent } from './time-series/time-series.component';
+import { fixData } from './globalAlgorithms/fixData';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { TimeSeriesComponent } from './time-series/time-series.component';
       { path: 'time-series', component: TimeSeriesComponent, pathMatch: 'full' }
     ])
   ],
-  providers: [findCodeLabel,exportToExcel,currencyFormatter],
+  providers: [findCodeLabel,exportToExcel,currencyFormatter,fixData],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
