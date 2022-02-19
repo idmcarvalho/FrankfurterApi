@@ -1,18 +1,19 @@
 <div class="container-fluid">
   <div class="row justify-content-around m-md-5 d-flex align-itens-center">
-    <div class="col-8">
-      <button type="button" class="btn btn-success btn-lg btn-block">Block level button</button>
-      <button type="button" class="btn btn-success btn-lg btn-block">Block level button</button>
-      <button type="button" class="btn btn-success btn-lg btn-block">Block level button</button>
-      <button type="button" class="btn btn-success btn-lg btn-block">Block level button</button>
+    <div class="col-12 col-md-8">
+      <button type="button" (mouseenter)="changeCard('latest')" (mouseleave)="changeCard('menu')"
+        class="btn btn-success btn-lg btn-block">Latest Rates</button>
+      <button (mouseenter)="changeCard('historical')" (mouseleave)="changeCard('menu')" type="button" class="btn btn-success btn-lg btn-block">Historical Rates</button>
+      <button (mouseenter)="changeCard('timeSeries')" (mouseleave)="changeCard('menu')" type="button" class="btn btn-success btn-lg btn-block">Time Series Rates</button>
+      <button (mouseenter)="changeCard('conversion')" (mouseleave)="changeCard('menu')" type="button" class="btn btn-success btn-lg btn-block">Conversion Rates</button>
     </div>
-    <div class="col-4">
+    <div class="col-12 col-md-4">
       <div class="card bg-dark text-white">
-        <img class="card-img" src="https://cdn.pixabay.com/photo/2012/11/21/10/27/frankfurt-66794_960_720.jpg" alt="Card image">
+        <img class="card-img" [src]="this.menuCards.photo" alt="Card image">
         <div class="card-img-overlay">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text">Last updated 3 mins ago</p>
+          <h5 class="display-3">{{this.menuCards.title}}</h5>
+          <p class="display-5">{{this.menuCards.description}}</p>
+          <p class="display-5">{{this.menuCards.footer}}</p>
         </div>
       </div>
     </div>
