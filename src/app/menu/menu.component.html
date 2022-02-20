@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div class="row justify-content-around m-md-5 d-flex align-itens-center">
-    <div class="col-12 col-md-8">
+  <div class="row justify-content-around align-items-center m-md-5">
+    <div class="col-12 col-md-8  mb-5">
       <button [routerLink]="['/latest']" type="button" (mouseenter)="changeCard('latest')" (mouseleave)="changeCard('menu')"
         class="btn btn-success btn-lg btn-block">Latest Rates</button>
       <button [routerLink]="['/historical']" (mouseenter)="changeCard('historical')" (mouseleave)="changeCard('menu')" type="button"
@@ -10,11 +10,11 @@
       <button [routerLink]="['/conversion']" (mouseenter)="changeCard('conversion')" (mouseleave)="changeCard('menu')" type="button"
         class="btn btn-success btn-lg btn-block">Conversion Rates</button>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-4 mb-5">
       <div class="card bg-dark text-white justify-content-center">
         <img class="card-img" [src]="this.menuCards.photo" alt="Card image">
         <div class="card-img-overlay">
-          <h5 class="display-3 text-center">{{this.menuCards.title}}</h5>
+          <h5 class="display-4 text-center">{{this.menuCards.title}}</h5>
           <p class="display-5 text-center">{{this.menuCards.description}}</p>
           <p class="display-5 text-center">{{this.menuCards.footer}}</p>
         </div>
