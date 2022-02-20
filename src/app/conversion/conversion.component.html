@@ -6,13 +6,14 @@
         <div class="col-12 col-md-8 text-center">
             <label>This tool allows you to convert from one currency to another</label>
             <br>
-            <button class="btn btn-success" *ngIf="this.showFields == false"
-                (click)="start()">Go</button>
-                <button [routerLink]="['/']" *ngIf="this.showFields == false" class="btn btn-outline-success ml-1">Return</button>
+            <button class="btn btn-success" *ngIf="this.showFields == false" (click)="start()">Go</button>
+            <button [routerLink]="['/']" *ngIf="this.showFields == false"
+                class="btn btn-outline-success ml-1">Return</button>
             <app-conversion-fields (onConvet)="getConvertionRate($event)" *ngIf="this.showFields == true">
             </app-conversion-fields>
             <br>
-            <label class="display-4 m-5 text-success" *ngIf="this.coin.value">{{this.showConversionResult.amount}} {{this.showConversionResult.coinFrom}}
+            <label class="display-4 m-5 text-success" *ngIf="this.coin.value">{{this.showConversionResult.rates}}
+                {{this.showConversionResult.coinFrom}}
                 represents {{coin.value}}
                 {{this.showConversionResult.coinTo}} </label>
         </div>

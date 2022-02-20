@@ -1,14 +1,20 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-8 text-center">
-          <label class="display-4 " for="inputState">Historical Rates</label>
-            <input [(ngModel)]="data" type="date" class="form-control">
+        <div class="col-8 text-center mt-5">
+          <label class="display-4" for="inputState">Historical Rates</label>
+          <br>
+          <label>Get rates from a specific period of time</label>
+          <input [(ngModel)]="data" type="date" class="form-control">
         </div>
         <div class="col-12 text-center mt-2">
-            <button (click)="search()" class="btn btn-success m-2">Search</button>
+            <button (click)="search()" class="btn btn-success mt-2">Search</button>
+            <button [routerLink]="['/']" class="btn btn-outline-success mt-2 ml-1 ">Return</button>
         </div>
-        <div class="table-responsive">
-          <table *ngIf="this.historicalRatesArray!=undefined" class="table table-striped">
+        <div class="table-responsive col-8">
+          <button (click)="exportToExcel()" *ngIf="this.historicalRatesArray?.length"
+        class="btn btn-success mt-3 mb-3 float-left">Export
+        Excel</button>
+          <table id="excel-table" *ngIf="this.historicalRatesArray!=undefined" class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">#</th>

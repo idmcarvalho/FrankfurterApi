@@ -18,6 +18,7 @@ import { currencyFormatter } from './globalAlgorithms/currencyFormatter';
 import { TimeSeriesComponent } from './time-series/time-series.component';
 import { fixData } from './globalAlgorithms/fixData';
 import { menuSettings } from './globalAlgorithms/menuSettings';
+import { DevelopersComponent } from './developers/developers.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { menuSettings } from './globalAlgorithms/menuSettings';
     FooterComponent,
     ConversionComponent,
     ConversionFieldsComponent,
-    TimeSeriesComponent
+    TimeSeriesComponent,
+    DevelopersComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -41,7 +43,8 @@ import { menuSettings } from './globalAlgorithms/menuSettings';
       { path: 'latest', component: LatestComponent, pathMatch: 'full' },
       { path: 'historical', component: HistoricalComponent, pathMatch: 'full' },
       { path: 'conversion', component: ConversionComponent, pathMatch: 'full' },
-      { path: 'time-series', component: TimeSeriesComponent, pathMatch: 'full' }
+      { path: 'time-series', component: TimeSeriesComponent, pathMatch: 'full' },
+      { path: 'developers', component: DevelopersComponent, pathMatch: 'full' }
     ])
   ],
   providers: [findCodeLabel,exportToExcel,currencyFormatter,fixData,menuSettings],

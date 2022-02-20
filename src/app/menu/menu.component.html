@@ -1,65 +1,24 @@
 <div class="container-fluid">
   <div class="row justify-content-around m-md-5 d-flex align-itens-center">
     <div class="col-12 col-md-8">
-      <button type="button" (mouseenter)="changeCard('latest')" (mouseleave)="changeCard('menu')"
+      <button [routerLink]="['/latest']" type="button" (mouseenter)="changeCard('latest')" (mouseleave)="changeCard('menu')"
         class="btn btn-success btn-lg btn-block">Latest Rates</button>
-      <button (mouseenter)="changeCard('historical')" (mouseleave)="changeCard('menu')" type="button" class="btn btn-success btn-lg btn-block">Historical Rates</button>
-      <button (mouseenter)="changeCard('timeSeries')" (mouseleave)="changeCard('menu')" type="button" class="btn btn-success btn-lg btn-block">Time Series Rates</button>
-      <button (mouseenter)="changeCard('conversion')" (mouseleave)="changeCard('menu')" type="button" class="btn btn-success btn-lg btn-block">Conversion Rates</button>
+      <button [routerLink]="['/historical']" (mouseenter)="changeCard('historical')" (mouseleave)="changeCard('menu')" type="button"
+        class="btn btn-success btn-lg btn-block">Historical Rates</button>
+      <button [routerLink]="['/time-series']" (mouseenter)="changeCard('timeSeries')" (mouseleave)="changeCard('menu')" type="button"
+        class="btn btn-success btn-lg btn-block">Time Series Rates</button>
+      <button [routerLink]="['/conversion']" (mouseenter)="changeCard('conversion')" (mouseleave)="changeCard('menu')" type="button"
+        class="btn btn-success btn-lg btn-block">Conversion Rates</button>
     </div>
     <div class="col-12 col-md-4">
-      <div class="card bg-dark text-white">
+      <div class="card bg-dark text-white justify-content-center">
         <img class="card-img" [src]="this.menuCards.photo" alt="Card image">
         <div class="card-img-overlay">
-          <h5 class="display-3">{{this.menuCards.title}}</h5>
-          <p class="display-5">{{this.menuCards.description}}</p>
-          <p class="display-5">{{this.menuCards.footer}}</p>
+          <h5 class="display-3 text-center">{{this.menuCards.title}}</h5>
+          <p class="display-5 text-center">{{this.menuCards.description}}</p>
+          <p class="display-5 text-center">{{this.menuCards.footer}}</p>
         </div>
       </div>
     </div>
-    <!-- <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/0/09/FrankfurterBank.jpg"
-        alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Latest</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" [routerLink]="['/latest']" class="btn btn-success">Go somewhere</a>
-      </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/0/09/FrankfurterBank.jpg"
-        alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Historical</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" [routerLink]="['/historical']" class="btn btn-success">Go somewhere</a>
-      </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/0/09/FrankfurterBank.jpg"
-        alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Time Series</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-          <a href="#" [routerLink]="['/time-series']" class="btn btn-success">Go somewhere</a>
-      </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/0/09/FrankfurterBank.jpg"
-        alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Conversion</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a [routerLink]="['/conversion']" href="#" class="btn btn-success">Go somewhere</a>
-      </div>
-    </div> -->
-
   </div>
 </div>

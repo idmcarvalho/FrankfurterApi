@@ -21,7 +21,7 @@ export class RequestsService {
   }
 
   getConversion(comparison:conversion){
-    let url = `https://api.frankfurter.app/latest?amount=${comparison.amount}&from=${comparison.coinFrom}&to=${comparison.coinTo}`;
+    let url = `https://api.frankfurter.app/latest?amount=${comparison.rates}&from=${comparison.coinFrom}&to=${comparison.coinTo}`;
     return this.http.get<any>(url);
   }
   getTimeSeries(startDate:string, endDate:string){
