@@ -1,27 +1,42 @@
 # FrankfurterApi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+To run this project on your development enviornment you must first runs these commands on the master folder:
 
-## Development server
+`npm install @fortawesome/fontawesome-svg-core`
+`npm install @fortawesome/free-solid-svg-icons`
+`npm install @fortawesome/angular-fontawesome`
+`npm install xlsx`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## The Api 
 
-## Code scaffolding
+The Frankfurter API tracks foreign exchange references rates published by the European Central Bank. The data refreshes around 16:00 CET every working day. Frankfurter integrates seamlessly with libraries like Money.js and Dinero.js.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Eg: https://api.frankfurter.app/${parameters}
 
-## Build
+## Tools
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+We've developed four main tools
 
-## Running unit tests
+## 1 - Latest Rates:
+This endpoint returns the latest rates. We added a feature to export these rates to excel, so it is possible to get these dates and create an analysis
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![image](https://user-images.githubusercontent.com/71354894/155049398-4de0c2f4-3fcc-484d-8d2b-9ed699f97d5a.png)
 
-## Running end-to-end tests
+## 2 - Historical Rates
+This endpoint returns historical rates for any working day since 4 January 1999.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![image](https://user-images.githubusercontent.com/71354894/155049497-7d3fae21-3467-4171-aabb-2364f8a81752.png)
 
-## Further help
+## 3 - Time Series Rates
+This endpoint returns data from a period of time from since 4 January 1999 until today. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![image](https://user-images.githubusercontent.com/71354894/155049638-40b3f25e-9886-440a-a91f-5e4c262edeec.png)
+
+## 4 - Conversion Rates
+You can convert any value between currencies using the above endpoints in combination with the amount parameter.
+
+![image](https://user-images.githubusercontent.com/71354894/155049704-d64ce502-261a-4ac7-9d0f-957f3816da64.png)
+
+
+## Api used to build this project https://www.frankfurter.app/docs/
+
