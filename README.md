@@ -2,6 +2,7 @@
 
 To run this project on your development enviornment you must first runs these commands on the master Branch:
 
+`npm install` <br>
 `npm install @fortawesome/fontawesome-svg-core` <br>
 `npm install @fortawesome/free-solid-svg-icons` <br>
 `npm install @fortawesome/angular-fontawesome` <br>
