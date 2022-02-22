@@ -1,6 +1,6 @@
 # FrankfurterApi
 
-To run this project on your development enviornment you must first run these commands on the master Branch:
+To run this project on your development environment you must first run these commands on the master Branch:
 
 `npm install` <br>
 `npm install @fortawesome/fontawesome-svg-core` <br>
