@@ -16,7 +16,7 @@ Eg: https://api.frankfurter.app/${parameters}
 
 ## Tools
 
-We've developed four main tools
+We've developed five main tools
 
 ## 1 - Menu
 From the menu you can navigate between components and get data from different endpoints
@@ -43,6 +43,15 @@ You can convert any value between currencies using the above endpoints in combin
 
 ![image](https://user-images.githubusercontent.com/71354894/155049704-d64ce502-261a-4ac7-9d0f-957f3816da64.png)
 
+## Reponsivity
+All the system is responsive, which means you get the same result using the website through a computer or a cell phone
 
-## Api used to build this project https://www.frankfurter.app/docs/
+![image](https://user-images.githubusercontent.com/71354894/155132849-d8fd1949-944a-4f97-8e0e-7d981471155d.png)
+
+##Our github
+Mateus: [https://github.com/MateusMo/](https://github.com/MateusMo/)
+Igor: [https://github.com/idmcarvalho](https://github.com/idmcarvalho)
+Iago: [https://github.com/iagoian](https://github.com/iagoian)
+
+## Api used to build this project [https://www.frankfurter.app/docs/](https://www.frankfurter.app/docs/)
 
