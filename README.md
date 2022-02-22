@@ -48,10 +48,10 @@ All the system is responsive, which means you get the same result using the webs
 
 ![image](https://user-images.githubusercontent.com/71354894/155132849-d8fd1949-944a-4f97-8e0e-7d981471155d.png)
 
-##Our github
-Mateus: [https://github.com/MateusMo/](https://github.com/MateusMo/)
-Igor: [https://github.com/idmcarvalho](https://github.com/idmcarvalho)
-Iago: [https://github.com/iagoian](https://github.com/iagoian)
+## Our github
+Mateus: [https://github.com/MateusMo/](https://github.com/MateusMo/) <br>
+Igor: [https://github.com/idmcarvalho](https://github.com/idmcarvalho) <br>
+Iago: [https://github.com/iagoian](https://github.com/iagoian) <br>
 
 ## Api used to build this project [https://www.frankfurter.app/docs/](https://www.frankfurter.app/docs/)
 
